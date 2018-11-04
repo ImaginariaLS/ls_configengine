@@ -7,27 +7,27 @@
  http://livestreetguide.com/developer/PSNet/
  */
 
-jQuery (document).ready (function ($) {
+jQuery(document).ready(function ($) {
 
-	$ ('a.ce_delete_plugin_config').bind ('click.ce', function () {
-		if (!confirm (ls.lang.get ('plugin.configengine.Plugins_List_Plugin_Delete_Question'))) return false;
-		PluginTableLine = $ (this).closest ('tr');
-		$.ajax ({
-			url: aRouter ['configengine'] + 'deleteplugin',
-			data: {
-				'security_ls_key': LIVESTREET_SECURITY_KEY,
-				'pluginname': $ (this).attr ('data-pluginname')
-			},
-			type: 'POST',
-			dataType: 'json',
-			success: function (data) {
-				PluginTableLine.hide (200, function () {
-					$ (this).remove ();
-				});
-				ls.msg.notice ('Ok', '');
-			}
-		});
-		return false;
-	});
+    $('a.ce_delete_plugin_config').bind('click.ce', function () {
+        if (!confirm(ls.lang.get('plugin.configengine.Plugins_List_Plugin_Delete_Question'))) return false;
+        PluginTableLine = $(this).closest('tr');
+        $.ajax({
+            url: aRouter ['configengine'] + 'deleteplugin',
+            data: {
+                'security_ls_key': LIVESTREET_SECURITY_KEY,
+                'pluginname': $(this).attr('data-pluginname')
+            },
+            type: 'POST',
+            dataType: 'json',
+            success: function (data) {
+                PluginTableLine.hide(200, function () {
+                    $(this).remove();
+                });
+                ls.msg.notice('Ok', '');
+            }
+        });
+        return false;
+    });
 
 });

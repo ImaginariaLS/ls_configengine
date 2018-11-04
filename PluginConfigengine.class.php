@@ -8,23 +8,27 @@
 	http://livestreetguide.com/developer/PSNet/
 */
 
-if (!class_exists ('Plugin')) {
-	die ('Kokobubble!');
+if (!class_exists('Plugin')) {
+    die ('Kokobubble!');
 }
 
-class PluginConfigengine extends Plugin {
+class PluginConfigengine extends Plugin
+{
 
-	public function Activate () {
-		if (!$this -> isTableExists ('prefix_plugins_settings')) {
-			$this -> ExportSQL (dirname (__FILE__) . '/plugins_settings.sql');
-		}
-		return true;
-	}
-	
-	// ---
+    public function Activate()
+    {
+        if (!$this->isTableExists('prefix_plugins_settings')) {
+            $this->ExportSQL(dirname(__FILE__) . '/plugins_settings.sql');
+        }
+        return true;
+    }
 
-	public function Init () {}
-	
+    // ---
+
+    public function Init()
+    {
+    }
+
 }
 
 ?>

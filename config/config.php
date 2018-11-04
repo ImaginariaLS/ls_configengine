@@ -8,7 +8,7 @@
 	http://livestreetguide.com/developer/PSNet/
 */
 
-$config = array ();
+$config = array();
 
 // Количество плагинов в списке на странице администрирования конфигов плагинов
 $config ['Plugins_Count_Per_Page'] = 20;
@@ -20,19 +20,17 @@ $config ['table'] ['config'] = '___db.table.prefix___plugins_settings';
 
 // router settings
 $config ['url'] = 'configengine';
-Config::Set ('router.page.' . $config ['url'], 'PluginConfigengine_ActionConfigengine');
+Config::Set('router.page.' . $config ['url'], 'PluginConfigengine_ActionConfigengine');
 
 // prefix for custom plugin`s key-values data
 $config ['plugins_data_signature_prefix'] = '_data_';
 
 // AC system
-$config ['AC_Exclude_Config_Keys'] = array (
-	// исключения для локального конфига
-	'table.config',
-	'plugins_data_signature_prefix',
-	'url'
+$config ['AC_Exclude_Config_Keys'] = array(
+    // исключения для локального конфига
+    'table.config',
+    'plugins_data_signature_prefix',
+    'url'
 );
 
 return $config;
-
-?>
