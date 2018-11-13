@@ -33,4 +33,8 @@ $config ['AC_Exclude_Config_Keys'] = array(
     'url'
 );
 
+$config['hook_priority'] = [
+    'lang_init_start'     =>  PHP_INT_MAX,
+];
+
 return $config;

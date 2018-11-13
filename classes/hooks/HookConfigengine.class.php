@@ -10,11 +10,23 @@
 
 class PluginConfigengine_HookConfigengine extends Hook
 {
+    const ConfigKey = 'configengine';
+    const HooksArray = [
+        'lang_init_start'       =>  'LangInitStart',
+        'engine_init_complete'  =>  'EngineInitComplete'
+    ];
 
     public function RegisterHook()
     {
-        $this->AddHook('lang_init_start', 'LangInitStart', __CLASS__, PHP_INT_MAX);                            // highest priority as possible
-        $this->AddHook('engine_init_complete', 'EngineInitComplete');
+        $plugin_config_key = $this::ConfigKey;
+        foreach ($this::HooksArray as $hook => $callback) {
+            $this->AddHook(
+                $hook,
+                $callback,
+                __CLASS__,
+                Config::Get("plugin.{$plugin_config_key}.hook_priority.{$hook}") ?? 1
+            );
+        }
     }
 
     // ---
